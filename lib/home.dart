@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_app/customsinglechildlayout.dart';
 
 import 'package:flutter_app/fittedbox.dart';
 import 'package:flutter_app/fractionallysizedbox.dart';
 import 'package:flutter_app/intrinsicheight.dart';
+import 'package:flutter_app/offstage.dart';
 import 'package:flutter_app/padding.dart';
 import 'package:flutter_app/align.dart';
 import 'package:flutter_app/aspectratio.dart';
@@ -12,13 +14,15 @@ import 'package:flutter_app/container.dart';
 import 'package:flutter_app/sizedbox.dart';
 import 'package:flutter_app/constrainedbox.dart';
 import 'package:flutter_app/baseline.dart';
+import 'package:flutter_app/transform.dart';
 
 // 演示页面相关信息
 final List<String> titleList = [
   'Align', 'AspectRatio', 'Center',
   'Container', 'FittedBox', 'Padding',
   'ConstrainedBox', 'SizedBox', 'Baseline',
-  'FractionallySizedBox', 'IntrinsicHeight'];
+  'FractionallySizedBox', 'IntrinsicHeight',
+  'OffstagePage', 'Transform', 'CustomSingleChildLayout'];
 int index = 0;
 
 void main() {
@@ -39,6 +43,9 @@ void main() {
           (titleList[index++] + 'Page'): (BuildContext context) => new BaselinePage(),
           (titleList[index++] + 'Page'): (BuildContext context) => new FractionallySizedBoxPage(),
           (titleList[index++] + 'Page'): (BuildContext context) => new IntrinsicHeightPage(),
+          (titleList[index++] + 'Page'): (BuildContext context) => new OffstagePage(),
+          (titleList[index++] + 'Page'): (BuildContext context) => new TransformPage(),
+          (titleList[index++] + 'Page'): (BuildContext context) => new CustomSingleChildLayoutPage(),
         },
       )
   );
@@ -94,6 +101,7 @@ class TutorialHome extends StatelessWidget {
                 color: Colors.amber,
                 width: width,
                 height: height,
+                margin: EdgeInsets.only(bottom: 40),
                 transform: Matrix4.rotationZ(0.1),
                 //                child: new ListView(
                 //                  children: itemList,
